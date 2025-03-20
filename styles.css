@@ -17,15 +17,24 @@ body {
     height: 100vh;
 }
 
+/* Profile Card */
 .profile-container {
     text-align: center;
-    background: #1a1a1a;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
     padding: 30px;
-    border-radius: 12px;
+    border-radius: 15px;
     width: 350px;
-    box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.1);
+    box-shadow: 0px 8px 32px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease-in-out;
 }
 
+/* Hover Lift Effect */
+.profile-container:hover {
+    transform: scale(1.05);
+}
+
+/* Profile Picture */
 .profile .profile-pic {
     width: 100px;
     height: 100px;
@@ -34,6 +43,7 @@ body {
     border: 3px solid #fff;
 }
 
+/* Name & Verified */
 h2 {
     font-size: 22px;
     margin-top: 10px;
@@ -44,12 +54,14 @@ h2 {
     font-size: 18px;
 }
 
+/* Description */
 p {
     font-size: 14px;
     color: #aaa;
     margin-bottom: 15px;
 }
 
+/* Social Icons */
 .social-icons {
     margin: 15px 0;
 }
@@ -59,13 +71,15 @@ p {
     color: #fff;
     font-size: 20px;
     margin: 0 8px;
-    transition: 0.3s;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .social-icons a:hover {
     color: #1da1f2;
+    transform: scale(1.2);
 }
 
+/* Buttons */
 .links {
     margin-top: 20px;
 }
@@ -74,14 +88,41 @@ p {
     display: block;
     text-decoration: none;
     color: white;
-    background: #262626;
+    background: linear-gradient(135deg, #262626, #333);
     padding: 12px;
     margin: 10px 0;
     border-radius: 8px;
     font-size: 16px;
-    transition: 0.3s;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
 }
 
+/* 3D Hover Effect */
 .btn:hover {
-    background: #333;
+    background: linear-gradient(135deg, #1e1e1e, #444);
+    transform: scale(1.05);
+}
+
+/* Floating Effect on Hover */
+.btn::before {
+    content: attr(data-title);
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+}
+
+/* Button Hover Floating Text */
+.btn:hover::before {
+    top: -40px;
+    opacity: 1;
 }
